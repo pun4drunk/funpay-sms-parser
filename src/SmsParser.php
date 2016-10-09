@@ -40,9 +40,9 @@ class SmsParser {
       'eol' => NULL,
       // field patterns in preg_match pattern=>matches format
       'patterns' => [
-          "/^Пароль\W+(\w+)$/ui" => [false, 'code'],
-          "/^Спишется\W+(\d+(?:,\d+)?)\s*([^\d.]+)\.?$/ui" => [false, 'amount', 'currency'],
-          '/^Перевод\s+на\s+счет\W+(\w+)$/ui' => [false, 'recipient'],
+          "/^[^\d]+(\d{4})$/" => [false, 'code'],
+          "/^[^\d]+(\d+(?:,\d{1,2})?)\s*(р)\.?$/" => [false, 'amount', 'currency'],
+          '/^[^\d]+(\d{14,20})$/' => [false, 'recipient'],
       ],
   ];
 
