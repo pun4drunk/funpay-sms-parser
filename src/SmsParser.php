@@ -34,7 +34,7 @@ class SmsParser {
       'eol' => NULL,
       'patterns' => [
           "/^Пароль\W+(\w+)$/ui" => [false, 'code'],
-          "/^Спишется\W+(\d+(?:,\d+))([^\d.]+)\.?$/ui" => [false, 'amount', 'currency'],
+          "/^Спишется\W+(\d+(?:,\d+)?)\s*([^\d.]+)\.?$/ui" => [false, 'amount', 'currency'],
           '/^Перевод на счет\W+(\w+)$/ui' => [false, 'recipient'],
       ],
   ];
