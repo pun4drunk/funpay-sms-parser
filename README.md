@@ -37,13 +37,11 @@ Default configuration is as follows:
   // field patterns in preg_match pattern=>matches format
   'patterns' => [
     "/^[^\d]+(\d{4})$/" => [false, 'code'],
-    "/^[^\d]+(\d+(?:,\d{1,2})?)\s*(р)\.?$/" => [false, 'amount', 'currency'],
-    '/^[^\d]+(\d{14,20})$/' => [false, 'recipient'],
+    "/^[^\d]+(\d+(?:,\d{1,2})?)\s*([^\d.]+)\.?$/" => [false, 'amount', 'currency'],
+    "/^[^\d]+(\d{14,20})$/" => [false, 'recipient'],
   ],
 ];
 ```
-
-Provided configuration is flexible enough to support string-based values for both ```code``` and ```recipient``` properties
 
 Adjusting configuration is the way to overwrite any rules for the parser.
 
