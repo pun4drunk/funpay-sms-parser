@@ -30,8 +30,15 @@ class SmsParser {
       'currency' => NULL,
       'recipient' => NULL,
   ];
+  
+  /**
+   * Configuration array
+   * @var array 
+   */
   protected $config = [
+      //new line delimiter
       'eol' => NULL,
+      // field patterns in preg_match pattern=>matches format
       'patterns' => [
           "/^Пароль\W+(\w+)$/ui" => [false, 'code'],
           "/^Спишется\W+(\d+(?:,\d+)?)\s*([^\d.]+)\.?$/ui" => [false, 'amount', 'currency'],
