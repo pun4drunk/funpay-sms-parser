@@ -36,28 +36,14 @@ Default configuration is as follows:
   'eol' => NULL,
   // field patterns in preg_match pattern=>matches format
   'patterns' => [
-      "/^Пароль\W+(\w+)$/ui" => [false, 'code'],
-      "/^Спишется\W+(\d+(?:,\d+)?)\s*([^\d.]+)\.?$/ui" => [false, 'amount', 'currency'],
-      '/^Перевод\s+на\s+счет\W+(\w+)$/ui' => [false, 'recipient'],
+    "/^[^\d]+(\d{4})$/" => [false, 'code'],
+    "/^[^\d]+(\d+(?:,\d{1,2})?)\s*(р)\.?$/" => [false, 'amount', 'currency'],
+    '/^[^\d]+(\d{14,20})$/' => [false, 'recipient'],
   ],
 ];
 ```
 
 Provided configuration is flexible enough to support string-based values for both ```code``` and ```recipient``` properties
-
-To use strict configuration, you can pass for example, like this:
-
-```
-[
-  'patterns' => [
-    "/^Пароль\W+(\d+)$/ui" => [false, 'code'],
-    "/^Спишется\W+(\d+(?:,\d+)?)\s*([^\d.]+)\.?$/ui" => [false, 'amount', 'currency'],
-    '/^Перевод\s+на\s+счет\W+(\d+)$/ui' => [false, 'recipient'],
-  ],
-];
-```
-
-This will restrict both ```code``` and ```recipient``` to be integers.
 
 Adjusting configuration is the way to overwrite any rules for the parser.
 
