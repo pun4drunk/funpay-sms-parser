@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="vendor/autoload.php" verbose="true" colors="true">
+    <php>
+        <env name="general.config.filename" value="tests/config/sms_parser_test.general.php" />
+        <env name="general.fixtures.filename" value="tests/fixtures/sms_parser_test.general.php" />
+        <env name="strict.fixtures.filename" value="tests/fixtures/sms_parser_test.general.php" />
+        <env name="strict.config.filename" value="tests/config/sms_parser_test.strict.php" />
+    </php>
+    <filter>
+    	<whitelist>
+            <directory>src/</directory>
+        </whitelist>
+    </filter>
+    <testsuites>
+        <testsuite name="Main">
+            <file>tests/unit/SmsParserTest.php</file>
+        </testsuite>
+    </testsuites>
+    <logging>
+      <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+    </logging> 
+</phpunit>
