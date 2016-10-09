@@ -34,9 +34,9 @@ class SmsParser {
     
     protected $config = [
         'patterns' => [
-            "/^Пароль\W+(\w+)$/" => [false, 'code'],
-            "/^Спишется\W+(\d+(?:,\d+))(р)\.?$/" => [false, 'amount', 'currency'],
-            '/^Перевод на счет\W+(\w+)$/' => [false, 'recipient'],
+            "/^пароль\W+(\w+)$/" => [false, 'code'],
+            "/^спишется\W+(\d+(?:,\d+))(\w+)\.?$/" => [false, 'amount', 'currency'],
+            '/^перевод на счет\W+(\w+)$/' => [false, 'recipient'],
         ],
     ];
     
@@ -53,7 +53,10 @@ class SmsParser {
     public function parse($string) {
         
         $result = $this->fields;
-        $lines = array_map('trim', explode(PHP_EOL, $string));
+        $lines = array_map(function($value) {
+            //prepare subject for case-insensitive search
+            return mb_strtolower(trim($value));
+        }, explode(PHP_EOL, $string));
         
         foreach ($this->config['patterns'] as $pattern => $fields) {
             

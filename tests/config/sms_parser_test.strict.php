@@ -7,7 +7,7 @@
 return [
     'patterns' => [
         "/^Пароль\W+(\d+)$/" => [false, 'code'],
-        "/^Спишется\W+(\d+(?:,\d+))(р)\.?$/" => [false, 'amount', 'currency'],
+        "/^Спишется\W+(\d+(?:,\d+))(\w+)\.?$/" => [false, 'amount', 'currency'],
         '/^Перевод на счет\W+(\d+)$/' => [false, 'recipient'],
     ],
 ];

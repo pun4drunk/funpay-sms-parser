@@ -26,13 +26,13 @@ class SmsParserTest extends PHPUnit_Framework_TestCase {
         
         $config = $this->getConfig($type);
         
-        foreach ($this->getFixtures($type) as $fixture) {
+        foreach ($this->getFixtures($type) as $case => $fixture) {
             
             $parser = new FunPay\SmsParser\SmsParser($config);
             $string = $fixture['string'];
             $expected = $fixture['result'];
             $actual = $parser->parse($string);
-            $this->assertEquals($expected, $actual);
+            $this->assertEquals($expected, $actual, "$case assertion failed");
             
         }
         
