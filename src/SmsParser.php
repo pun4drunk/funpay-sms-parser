@@ -41,8 +41,8 @@ class SmsParser {
       // field patterns in preg_match pattern=>matches format
       'patterns' => [
           "/^[^\d]+(\d{4})$/" => [false, 'code'],
-          "/^[^\d]+(\d+(?:,\d{1,2})?)\s*(р)\.?$/" => [false, 'amount', 'currency'],
-          '/^[^\d]+(\d{14,20})$/' => [false, 'recipient'],
+          "/^[^\d]+(\d+(?:,\d{1,2})?)\s*([^\d.]+)\.?$/" => [false, 'amount', 'currency'],
+          "/^[^\d]+(\d{14,20})$/" => [false, 'recipient'],
       ],
   ];
 
