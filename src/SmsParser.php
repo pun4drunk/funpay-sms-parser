@@ -36,7 +36,7 @@ class SmsParser {
    * @var array 
    */
   protected $config = [
-      //new line delimiter
+      //new line delimiter, NULL will be converted into PHP_EOL value
       'eol' => NULL,
       // field patterns in preg_match pattern=>matches format
       'patterns' => [

@@ -30,7 +30,7 @@ Parser should be constructed with configuration array
 Default configuration is as follows:
 ```
 [
-  //new line delimiter
+  //new line delimiter, NULL will be converted into PHP_EOL value
   'eol' => NULL,
   // field patterns in preg_match pattern=>matches format
   'patterns' => [
