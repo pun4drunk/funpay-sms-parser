@@ -28,6 +28,7 @@ USAGE
 -------------------
 
 Parser should be constructed with configuration array
+
 Default configuration is as follows:
 ```
 [
@@ -43,6 +44,7 @@ Default configuration is as follows:
 ```
 
 Provided configuration is flexible enough to support string-based values for both ```code``` and ```recipient``` properties
+
 To use strict configuration, you can pass for example, like this:
 
 ```
