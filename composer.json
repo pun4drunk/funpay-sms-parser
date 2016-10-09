@@ -1,0 +1,19 @@
+{
+    "name": "pun4drunk/funpay-sms-parser",
+    "description": "FunPay SMS Parser",
+    "type": "package",
+    "license": "open-source",
+    "authors": [
+        {
+            "name": "Vladislav Waxme",
+            "email": "vlad.waxme@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "FunPay\\SmsParser\\": "src/"
+        }
+    }
+}
